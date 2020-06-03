@@ -1,0 +1,12 @@
+JP's Notes
+
+Areas of strength:
+1.	I thought the blog post about how people usually set up data and your explanation for a better alternative was a great way to use a function, walk and dir_create. I also like the option of including a link. 
+2.	I really like how you used all of the content from the course and made a concise set of blog posts that can tend to be helpful for people when they googling all of these together. With the amount of googling I’ve done, blog posts are always extremely helpful. 
+3.	I also think it is a good way of teaching new concepts while also referring back to previous blog posts and links.
+
+What I learned:
+1.	I learned a lot from this being a set of blog posts. My favorite was the use of reactable to create useful tables. I know I’ll use it in the future. 
+
+Areas of improvement:
+1.	Made slight changes to your plots that use dates to have more points to reference when following time across the days using scale_x_date. You can change it to be by day but it looked cluttered in your plots that have larger text size. I also tried creating a plot for your extracted coefficients for your linear models. It is extracting all of the coefficients at once. I might recommend extracting the R2 of each country’s cases --> total_mob and then putting that in the label of the plot. Since it is one IV and one DV, the R2 would be the same as a correlation coefficient and could be used as an effect size. Daniel had notes on extracting the R2 too. Overall, I really liked the creation of a blog post. 

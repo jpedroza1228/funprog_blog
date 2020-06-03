@@ -85,6 +85,10 @@ You can also read a CSV file straight from the Internet via a URL. CSVs should h
 #url <- "https://www.putyourcoolurl/linktofile/here/download.csv"
 #covid_data <- read_csv(url)
 #View(covid_data)
+
+# another option is to use read_csv to read the actual url.
+
+# covid_data <- readr::read_csv("https://www.putyourcoolurl/linktofile/here/download.csv")
 ```
 
 # Saving your data to folder

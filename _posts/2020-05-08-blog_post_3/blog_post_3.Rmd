@@ -67,7 +67,9 @@ plots_workplaces <- d %>%
   mutate(plots = pmap(list(country, data),  
                       ~ggplot(..2, aes(date, workplaces)) +
                         geom_point() + 
-                        geom_line()))
+                        geom_line() +
+                        scale_x_date(date_breaks = '1 week',
+                                     date_labels = "%b %d")))
 
 ```
 
@@ -102,6 +104,8 @@ plots_workplaces <- d %>%
       geom_line(color = "grey70") +
       geom_point(aes(color = workplaces > 0), 
                  size = 2) +
+      scale_x_date(date_breaks = '1 week',
+                   date_labels = "%b %d") +
       scale_color_brewer(palette = "Set2") +      
       theme(axis.title.x = element_blank(), 
             legend.position = 'none', 
@@ -191,7 +195,7 @@ Now let's loop through the data and apply our `create_plot()` function:
 plots_by_country_mobil_cat <- by_country_mobil_cat %>%
   mutate(plots = pmap(list(country, mobil_category, data), 
                       ~create_plot(df = by_country_mobil_cat, outcome = .x)))
-
+str(plots_by_country_mobil_cat)
 plots_by_country_mobil_cat$plots[[1]]
 
 # Q for DA: why is this not working? 
@@ -250,6 +254,19 @@ slopes
 Plotting lm for each country:
 
 ```{r}
+slope <- as.data.frame(slopes)
+
+str(slope)
+
+d1 %>% 
+  ggplot(aes(log(total_cases), total_mob)) +
+  geom_point() +
+  geom_smooth(method = 'lm', se = FALSE) +
+  facet_wrap(~country) +
+  geom_text(data = slope, aes(x = 1, y = 200, label = slopes))
+
+# JP - I tried including the slope of your linear model for each country for each country's scatterplot but for some reason, it is adding all the slopes on to each facetted plot. 
+
 
 # Q for DA: How to use what I've done thus far to plot?
 # Or scrap this bit entirely? 
